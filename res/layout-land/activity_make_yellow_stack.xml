@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.sumeet.test.makeYellowStack"
+    android:id="@+id/activity_make_yellow_stack"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:id="@+id/yellow_totes"
+        android:focusableInTouchMode="false">
+
+        <ImageButton
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton25"
+            android:background="@drawable/yellowtote"
+            android:onClick="changeTote"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.26" />
+
+        <ImageButton
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton24"
+            android:background="@drawable/yellowtote"
+            android:onClick="changeTote"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.26" />
+
+        <ImageButton
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton23"
+            android:background="@drawable/yellowtote"
+            android:onClick="changeTote"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.26" />
+
+        <ImageButton
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton22"
+            android:background="@drawable/yellowtote"
+            android:onClick="changeTote"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.26" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:id="@+id/imageButton28"
+        android:background="@drawable/checkmark"
+        android:onClick="confirmTotes"
+        android:layout_gravity="bottom"
+        android:layout_weight="0.26" />
+
+</LinearLayout>
