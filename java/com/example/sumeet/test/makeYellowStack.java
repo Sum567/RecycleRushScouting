@@ -50,7 +50,7 @@ public class makeYellowStack extends ActionBarActivity {
 
     public boolean onTouchEvent(MotionEvent event){
         linearLayout = (LinearLayout)findViewById(R.id.yellow_totes);
-        int resID = getResources().getIdentifier("grey","drawable",getPackageName());
+        int resID = getResources().getIdentifier("yellowtote","drawable",getPackageName());
 
         if(event.getAction() == MotionEvent.ACTION_DOWN && event.getX()>linearLayout.getX()){
             for(int i = 0; i<imageButtons.length; i++){
