@@ -42,6 +42,12 @@ public class makeYellowStack extends ActionBarActivity {
         imageButtons[3] = (ImageButton)findViewById(R.id.imageButton25);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,showStacks.class);
+        startActivity(intent);
+    }
+
     public boolean onTouchEvent(MotionEvent event){
         linearLayout = (LinearLayout)findViewById(R.id.yellow_totes);
         int resID = getResources().getIdentifier("grey","drawable",getPackageName());

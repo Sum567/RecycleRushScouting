@@ -71,6 +71,12 @@ public class makeStack extends ActionBarActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,showStacks.class);
+        startActivity(intent);
+    }
+
     public boolean onTouchEvent(MotionEvent event){
         linearLayout = (LinearLayout)(findViewById(R.id.activity_make_stack));
         linearLayout2 = (LinearLayout)(findViewById(R.id.linear_layout_totes));

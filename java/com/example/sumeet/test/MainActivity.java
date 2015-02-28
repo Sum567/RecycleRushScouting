@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -56,6 +59,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 //    public boolean onTouchEvent(MotionEvent event){
@@ -117,14 +124,22 @@ public class MainActivity extends ActionBarActivity {
 
     public void getCords(View view){
         imageView = (ImageView)findViewById(R.id.imageView);
+        imageView.buildDrawingCache();
+        final Bitmap bitmap = imageView.getDrawingCache();
+        final int[]pixels = {Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,
+        Color.RED};
         textView = (TextView)findViewById(R.id.textView2);
-
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                int x = (int)event.getX();
+                int y = (int)event.getY();
                 textView.setText("Touch coordinates : " + "x" +
-                        String.valueOf(event.getX()) + "y" + String.valueOf(event.getY()));
-                cords = "" + event.getX() + "," + event.getY();
+                        String.valueOf(x) + "y" + String.valueOf(y));
+                cords = "" + x + "," + y;
+
+                bitmap.setPixels(pixels,0,4,x,y,4,4);
+
                 return true;
             }
         });

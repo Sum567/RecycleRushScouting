@@ -35,7 +35,7 @@ public class showStacks extends ActionBarActivity {
     public static boolean toggle;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_stacks);
 
@@ -92,6 +92,12 @@ public class showStacks extends ActionBarActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,autonKnockedOver.class);
+        startActivity(intent);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_show_stacks, menu);
@@ -140,13 +146,13 @@ public class showStacks extends ActionBarActivity {
         textView = (TextView) (findViewById(R.id.textView3));
         if (textView.getText() == null) {
             for (int i = 0; i < stacks.size(); i++) {
-                textView.append(tempString + " stapel" + "#" + (i + 1));
+                textView.append(tempString + " Stack" + "#" + (i + 1));
             }
         }
         if (textView.getText() != null) {
             tempString = textView.getText().toString();
             for (int i = 0; i < stacks.size(); i++) {
-                textView.append(tempString + "stapel" + "#" + (i + 1) + "\n");
+                textView.append(tempString + "Stack" + "#" + (i + 1) + "\n");
 
             }
         }
@@ -158,21 +164,21 @@ public class showStacks extends ActionBarActivity {
         textView = (TextView) (findViewById(R.id.textView13));
         if (textView.getText() == null) {
             for (int i = 0; i < yellowStacks.size(); i++) {
-                textView.append(tempString + "stapel" + "#" + (i + 1));
+                textView.append(tempString + "Stack" + "#" + (i + 1));
                 textView.setTextColor(Color.parseColor("#d9f907"));
             }
         }
         if (textView.getText() != null) {
             tempString = textView.getText().toString();
             for (int i = 0; i < yellowStacks.size(); i++) {
-                textView.append(tempString + "stapel" + "#" + (i + 1) + "\n");
+                textView.append(tempString + "Stack" + "#" + (i + 1) + "\n");
                 textView.setTextColor(Color.parseColor("#d9f907"));
             }
         }
     }
 
-    public void startComments(View view) {
-        Intent intent = new Intent(this, Comments.class);
+    public void startKnockedOver(View view) {
+        Intent intent = new Intent(this, teleopKnockedOver.class);
         startActivity(intent);
     }
 

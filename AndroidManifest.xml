@@ -2,13 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sumeet.test" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+         />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -47,6 +48,14 @@
         <activity
             android:name=".Reset"
             android:label="@string/title_activity_reset" >
+        </activity>
+        <activity
+            android:name=".autonKnockedOver"
+            android:label="@string/title_activity_auton_knocked_over" >
+        </activity>
+        <activity
+            android:name=".teleopKnockedOver"
+            android:label="@string/title_activity_teleop_knocked_over" >
         </activity>
     </application>
 

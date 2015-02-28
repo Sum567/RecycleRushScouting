@@ -38,9 +38,9 @@
         android:layout_height="550dp"
         android:id="@+id/imageView"
         android:background="@drawable/field"
-        android:onClick="getCords"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="getCords" />
 
     <ImageButton
         android:layout_width="wrap_content"

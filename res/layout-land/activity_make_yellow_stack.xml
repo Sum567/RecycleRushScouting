@@ -11,62 +11,59 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:weightSum="1"
         android:id="@+id/yellow_totes"
-        android:focusableInTouchMode="false">
+        android:focusableInTouchMode="false"
+        android:layout_weight="1">
 
         <ImageButton
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
+            android:layout_width="109dp"
+            android:layout_height="106dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton25"
             android:background="@drawable/yellowtote"
             android:onClick="changeTote"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.26" />
+            android:layout_gravity="center_horizontal" />
 
         <ImageButton
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
+            android:layout_width="109dp"
+            android:layout_height="106dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton24"
             android:background="@drawable/yellowtote"
             android:onClick="changeTote"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.26" />
+            android:layout_gravity="center_horizontal" />
 
         <ImageButton
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
+            android:layout_width="109dp"
+            android:layout_height="106dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton23"
             android:background="@drawable/yellowtote"
             android:onClick="changeTote"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.26" />
+            android:layout_gravity="center_horizontal" />
 
         <ImageButton
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
+            android:layout_width="109dp"
+            android:layout_height="106dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton22"
             android:background="@drawable/yellowtote"
             android:onClick="changeTote"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton28"
+            android:background="@drawable/checkmark"
+            android:onClick="confirmTotes"
+            android:layout_gravity="right"
             android:layout_weight="0.26" />
 
     </LinearLayout>
-
-    <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:id="@+id/imageButton28"
-        android:background="@drawable/checkmark"
-        android:onClick="confirmTotes"
-        android:layout_gravity="bottom"
-        android:layout_weight="0.26" />
 
 </LinearLayout>

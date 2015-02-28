@@ -12,6 +12,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class Reset extends ActionBarActivity {
@@ -21,6 +22,10 @@ public class Reset extends ActionBarActivity {
     public static String totesSetAuton = "" + Autonomous.totesSetAuton;
     public static String totesMovedAuton = "" + Autonomous.totesMovedAuton;
     public static String autonMove = "" + Autonomous.autonMove;
+    public static String autonTotesKnocked = "" + autonKnockedOver.totesAdded;
+    public static String autonBinsKnocked = "" + autonKnockedOver.binsAdded;
+    public static String teleopTotesKnocked = "" + teleopKnockedOver.totes;
+    public static String teleopBinsKnocked = "" + teleopKnockedOver.bins;
     public static String autonComments = Comments.autonComments;
     public static String teleopComments = Comments.teleopComments;
 
@@ -35,6 +40,12 @@ public class Reset extends ActionBarActivity {
         }else{
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,Comments.class);
+        startActivity(intent);
     }
 
 
@@ -103,7 +114,11 @@ public class Reset extends ActionBarActivity {
             out.newLine();
             out.write("Auton Comments: " + autonComments);
             out.newLine();
+            out.write("Auton totes knocked over: " + autonTotesKnocked + "," + "Auton bins knocked over: " + autonBinsKnocked);
+            out.newLine();
             out.write("Teleop Comments: " + teleopComments);
+            out.newLine();
+            out.write("Teleop totes knocked over: " + teleopTotesKnocked + "," + "Teleop bins knocked over: " + teleopBinsKnocked);
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,6 +127,8 @@ public class Reset extends ActionBarActivity {
 
     public void startOver(View view){
         generateCsvFile();
+        showStacks.stacks = new ArrayList<>();
+        showStacks.yellowStacks = new ArrayList<>();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }

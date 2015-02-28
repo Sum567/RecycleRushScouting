@@ -10,5 +10,7 @@
     <string name="title_activity_comments">Comments</string>
     <string name="title_activity_make_yellow_stack">makeYellowStack</string>
     <string name="title_activity_reset">Reset</string>
+    <string name="title_activity_auton_knocked_over">autonKnockedOver</string>
+    <string name="title_activity_teleop_knocked_over">teleopKnockedOver</string>
 
 </resources>

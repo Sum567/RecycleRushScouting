@@ -7,18 +7,18 @@
     tools:context="com.example.sumeet.test.Autonomous">
 
     <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageButton14"
         android:background="@drawable/customplus"
         android:onClick="addOne"
-        android:layout_alignTop="@+id/textView"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_below="@+id/checkBox"
+        android:layout_alignRight="@+id/checkBox"
+        android:layout_alignEnd="@+id/checkBox" />
 
     <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageButton15"
         android:background="@drawable/customminus"
         android:onClick="subtractOne"
@@ -32,8 +32,8 @@
         android:id="@+id/textView"
         android:hint="Totes Set"
         android:editable="true"
-        android:textSize="90dp"
-        android:layout_below="@+id/imageButton17"
+        android:textSize="50dp"
+        android:layout_alignTop="@+id/textView10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -64,27 +64,31 @@
         android:id="@+id/textView10"
         android:hint="Totes Moved"
         android:editable="true"
-        android:textSize="90dp"
-        android:layout_centerVertical="true" />
+        android:textSize="50dp"
+        android:layout_below="@+id/checkBox"
+        android:layout_toRightOf="@+id/checkBox"
+        android:layout_toEndOf="@+id/checkBox"
+        android:layout_marginLeft="69dp"
+        android:layout_marginStart="69dp" />
 
     <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageButton17"
         android:background="@drawable/customplus"
         android:onClick="add"
         android:layout_alignTop="@+id/textView10"
-        android:layout_toRightOf="@+id/textView10"
-        android:layout_toEndOf="@+id/textView10" />
+        android:layout_toLeftOf="@+id/imageButton23"
+        android:layout_toStartOf="@+id/imageButton23" />
 
     <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageButton19"
         android:background="@drawable/customminus"
         android:onClick="subtract"
         android:layout_below="@+id/imageButton17"
-        android:layout_toRightOf="@+id/textView10"
-        android:layout_toEndOf="@+id/textView10" />
+        android:layout_alignLeft="@+id/imageButton17"
+        android:layout_alignStart="@+id/imageButton17" />
 
 </RelativeLayout>

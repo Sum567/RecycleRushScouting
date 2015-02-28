@@ -28,6 +28,12 @@ public class Autonomous extends ActionBarActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,7 +76,7 @@ public class Autonomous extends ActionBarActivity {
     }
     
     public void submitTotes(View view){
-        Intent intent = new Intent(this, showStacks.class);
+        Intent intent = new Intent(this, autonKnockedOver.class);
         startActivity(intent);
     }
 
