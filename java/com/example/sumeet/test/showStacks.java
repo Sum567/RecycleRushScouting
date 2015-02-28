@@ -144,6 +144,7 @@ public class showStacks extends ActionBarActivity {
 
     public void printStackNumbers() {
         textView = (TextView) (findViewById(R.id.textView3));
+        textView.setMovementMethod(new ScrollingMovementMethod());
         if (textView.getText() == null) {
             for (int i = 0; i < stacks.size(); i++) {
                 textView.append(tempString + " Stack" + "#" + (i + 1));
@@ -162,6 +163,7 @@ public class showStacks extends ActionBarActivity {
 
     public void printYellowStackNumbers() {
         textView = (TextView) (findViewById(R.id.textView13));
+        textView.setMovementMethod(new ScrollingMovementMethod());
         if (textView.getText() == null) {
             for (int i = 0; i < yellowStacks.size(); i++) {
                 textView.append(tempString + "Stack" + "#" + (i + 1));

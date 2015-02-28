@@ -54,13 +54,14 @@
             android:background="@drawable/yellowtote"
             android:onClick="changeTote" />
 
-        <ImageButton
-            android:layout_width="79dp"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:id="@+id/imageButton28"
-            android:layout_weight="0.16"
-            android:background="@drawable/checkmark"
-            android:onClick="confirmTotes" />
     </LinearLayout>
+
+    <ImageButton
+        android:layout_width="98dp"
+        android:layout_height="46dp"
+        android:scaleType="fitXY"
+        android:id="@+id/imageButton28"
+        android:background="@drawable/checkmark"
+        android:onClick="confirmTotes"
+        android:layout_gravity="bottom" />
 </LinearLayout>

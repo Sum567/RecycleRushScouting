@@ -136,12 +136,6 @@
             android:onClick="changeTote"
             android:layout_weight=".16" />
 
-        <ImageButton
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:id="@+id/imageButton16"
-            android:background="@drawable/checkmark"
-            android:onClick="confirmTotes" />
     </LinearLayout>
 
     <LinearLayout
@@ -153,53 +147,70 @@
         android:id="@+id/linear_layout_bins">
 
         <ImageButton
-            android:layout_width="85dp"
-            android:layout_height="83dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton13"
             android:background="#303030"
-            android:layout_weight="0.22"
             android:onClick="changeBin" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="72dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton12"
+            android:background="#303030"
+            android:onClick="changeBin"
+            android:baselineAlignBottom="true" />
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton37"
             android:background="#303030"
             android:onClick="changeBin" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="72dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton11"
             android:background="#303030"
             android:onClick="changeBin" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="72dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton10"
             android:background="#303030"
             android:onClick="changeBin" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="72dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton9"
             android:background="#303030"
             android:onClick="changeBin" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="72dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton8"
             android:background="#303030"
-            android:onClick="changeBin" />
+            android:onClick="changeBin"
+            android:baselineAlignBottom="true" />
     </LinearLayout>
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/imageButton16"
+        android:background="@drawable/checkmark"
+        android:onClick="confirmTotes"
+        android:layout_gravity="bottom" />
 
 </LinearLayout>

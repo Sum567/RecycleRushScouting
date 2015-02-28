@@ -1,9 +1,12 @@
 package com.example.sumeet.test;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,13 +75,17 @@ public class Reset extends ActionBarActivity {
     }
 
     private void generateCsvFile() {
-
-        //String path = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-        File file = new File(getExternalFilesDir(null), teamNumber + "," + matchNumber + ".csv");
-        //System.out.println(file.getPath());
+        //System.out.println(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
+        File root = android.os.Environment.getExternalStorageDirectory();
+        File dir = new File(root.getAbsolutePath() + "/download");
+        dir.mkdirs();
+        File file = new File(dir,teamNumber + "," + matchNumber + ".csv");
+        System.out.println(file.getPath());
         try {
+            //File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), teamNumber + "," + matchNumber + ".csv");
             if (!file.exists()) {
                 file.createNewFile();
+                System.out.println("Created new file");
             }
 
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
@@ -123,6 +130,15 @@ public class Reset extends ActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /* Checks if external storage is available for read and write */
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
     }
 
     public void startOver(View view){

@@ -11,69 +11,63 @@
         android:layout_height="wrap_content"
         android:text="Totes knocked over"
         android:id="@+id/textView15"
-        android:layout_marginTop="143dp"
-        android:textSize="50dp"
+        android:textSize="40dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/imageButton33" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton29"
         android:background="@drawable/customplus"
-        android:layout_alignBottom="@+id/textView15"
-        android:layout_toRightOf="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
-        android:onClick="addTote" />
+        android:onClick="addTote"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton30"
         android:background="@drawable/customminus"
+        android:onClick="subtractTote"
         android:layout_below="@+id/imageButton29"
-        android:layout_toRightOf="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
-        android:onClick="subtractTote" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bins knocked over"
         android:id="@+id/textView16"
-        android:textSize="50dp"
+        android:textSize="40dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/imageButton30" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton31"
         android:background="@drawable/customplus"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_toRightOf="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
-        android:onClick="addBin" />
+        android:onClick="addBin"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/imageButton33" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton32"
         android:background="@drawable/customminus"
+        android:onClick="subtractBin"
         android:layout_below="@+id/imageButton31"
-        android:layout_toRightOf="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
-        android:onClick="subtractBin" />
+        android:layout_toRightOf="@+id/textView16" />
 
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:id="@+id/imageButton33"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
         android:background="@drawable/checkmark"
-        android:onClick="startTeleop" />
+        android:onClick="startTeleop"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView16" />
 </RelativeLayout>
