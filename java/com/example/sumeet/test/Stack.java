@@ -12,13 +12,16 @@ public class Stack{
     private int bottom;
     private boolean hasBin;
     private boolean hasNoodle;
+    private boolean fromFeeder;
+    private boolean fromLandFill;
 
-
-    public Stack(int top, int bottom, boolean hasBin, boolean hasNoodle){
+    public Stack(int top, int bottom, boolean hasBin, boolean hasNoodle, boolean fromFeeder, boolean fromLandFill){
         this.top = top;
         this.bottom = bottom;
         this.hasBin = hasBin;
         this.hasNoodle = hasNoodle;
+        this.fromFeeder = fromFeeder;
+        this.fromLandFill = fromLandFill;
     }
 
     public int getTop(){
@@ -33,4 +36,6 @@ public class Stack{
     public boolean getHasNoodle(){
         return hasNoodle;
     }
+    public boolean getFromLandFill(){return fromLandFill;}
+    public boolean getfromFeeder(){return fromFeeder;}
 }

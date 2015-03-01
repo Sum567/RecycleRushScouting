@@ -34,6 +34,8 @@ public class makeStack extends ActionBarActivity {
     private int toteClick = 0;
     public static boolean binToggle = false;
     public static boolean noodleToggle = false;
+    public static boolean fromFeeder = false;
+    public static boolean fromLandFill = false;
     private boolean toggle = false;
     private int index;
     private boolean topSet = false;
@@ -100,6 +102,14 @@ public class makeStack extends ActionBarActivity {
 
 
         return super.onTouchEvent(event);
+    }
+
+    public void setFromFeeder(View view){
+        fromFeeder = true;
+    }
+
+    public void setFromLandFill(View view){
+        fromLandFill = true;
     }
 
     @Override
@@ -214,9 +224,9 @@ public class makeStack extends ActionBarActivity {
     //takes all the info on the stack and adds it as a new stack in the stack arraylist
     public void confirmTotes(View input){
         if(toggle) {
-            showStacks.stacks.set(showStacks.temp,new Stack(top, bottom, binToggle, noodleToggle));
+            showStacks.stacks.set(showStacks.temp,new Stack(top, bottom, binToggle, noodleToggle,fromFeeder,fromLandFill));
         }else if(toggle==false){
-            showStacks.stacks.add(new Stack(top,bottom,binToggle,noodleToggle));
+            showStacks.stacks.add(new Stack(top,bottom,binToggle,noodleToggle,fromFeeder,fromLandFill));
         }
         for(int i = 0; i<totes.length; i++){
             totes[i].setImageResource(getResources().getIdentifier("tote","drawable",getPackageName()));

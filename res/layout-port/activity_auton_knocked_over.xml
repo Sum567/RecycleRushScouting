@@ -10,10 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Totes knocked over"
-        android:id="@+id/textView15"
-        android:textSize="40dp"
+        android:id="@+id/textView16"
+        android:textSize="30dp"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/imageButton33" />
+        android:layout_alignRight="@+id/textView17" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -23,7 +23,7 @@
         android:onClick="addTote"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="false" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -33,16 +33,17 @@
         android:onClick="subtractTote"
         android:layout_below="@+id/imageButton29"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bins knocked over"
-        android:id="@+id/textView16"
-        android:textSize="40dp"
+        android:id="@+id/textView17"
+        android:textSize="30dp"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/imageButton30" />
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -51,7 +52,8 @@
         android:background="@drawable/customplus"
         android:onClick="addBin"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/imageButton33" />
+        android:layout_alignLeft="@+id/imageButton30"
+        android:layout_alignStart="@+id/imageButton30" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -60,7 +62,8 @@
         android:background="@drawable/customminus"
         android:onClick="subtractBin"
         android:layout_below="@+id/imageButton31"
-        android:layout_toRightOf="@+id/textView16" />
+        android:layout_alignLeft="@+id/imageButton31"
+        android:layout_alignStart="@+id/imageButton31" />
 
     <ImageButton
         android:layout_width="60dp"
@@ -69,5 +72,6 @@
         android:background="@drawable/checkmark"
         android:onClick="startTeleop"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView16" />
+        android:layout_alignRight="@+id/imageButton32"
+        android:layout_alignEnd="@+id/imageButton32" />
 </RelativeLayout>

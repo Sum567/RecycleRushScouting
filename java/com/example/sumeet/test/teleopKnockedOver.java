@@ -51,13 +51,16 @@ public class teleopKnockedOver extends ActionBarActivity {
     }
 
     public void addTote(View view){
-        textView = (TextView)findViewById(R.id.textView17);
+        textView = (TextView)findViewById(R.id.textView18);
         totes++;
+        if(totes>6){
+            totes = 6;
+        }
         textView.setText(""+totes);
     }
 
     public void subtractTote(View view){
-        textView = (TextView)findViewById(R.id.textView17);
+        textView = (TextView)findViewById(R.id.textView18);
         totes--;
         if(totes<0){
             totes = 0;
@@ -66,13 +69,16 @@ public class teleopKnockedOver extends ActionBarActivity {
     }
 
     public void addBin(View view){
-        textView = (TextView)findViewById(R.id.textView18);
+        textView = (TextView)findViewById(R.id.textView19);
         bins++;
+        if(bins>6){
+            bins = 6;
+        }
         textView.setText(""+bins);
     }
 
     public void subtractBin(View view){
-        textView = (TextView)findViewById(R.id.textView18);
+        textView = (TextView)findViewById(R.id.textView19);
         bins--;
         if(bins<0){
             bins=0;

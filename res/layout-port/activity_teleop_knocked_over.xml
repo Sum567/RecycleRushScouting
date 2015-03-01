@@ -11,62 +11,61 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Totes knocked over"
-        android:id="@+id/textView17"
-        android:textSize="40dp"
+        android:id="@+id/textView18"
+        android:textSize="30dp"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/imageButton36"
-        android:layout_toStartOf="@+id/imageButton36" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton29"
         android:background="@drawable/customplus"
-        android:onClick="addTote"
-        android:layout_alignTop="@+id/textView17"
-        android:layout_toRightOf="@+id/textView17"
-        android:layout_toEndOf="@+id/textView17" />
+        android:onClick="addBin"
+        android:layout_alignBottom="@+id/textView19"
+        android:layout_alignLeft="@+id/imageButton30" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton30"
         android:background="@drawable/customminus"
-        android:onClick="subtractTote"
-        android:layout_below="@+id/imageButton29"
-        android:layout_alignLeft="@+id/imageButton29"
-        android:layout_alignStart="@+id/imageButton29" />
+        android:onClick="subtractBin"
+        android:layout_below="@+id/textView19"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bins knocked over"
-        android:id="@+id/textView18"
-        android:textSize="40dp"
+        android:id="@+id/textView19"
+        android:textSize="30dp"
+        android:layout_marginTop="78dp"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/imageButton34"
-        android:layout_toStartOf="@+id/imageButton34"
-        android:layout_marginTop="78dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton34"
         android:background="@drawable/customplus"
-        android:onClick="addBin"
+        android:onClick="addTote"
         android:layout_alignTop="@+id/textView18"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="false" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton35"
         android:background="@drawable/customminus"
-        android:onClick="subtractBin"
+        android:onClick="subtractTote"
         android:layout_below="@+id/imageButton34"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="false" />
 
     <ImageButton
         android:layout_width="60dp"
@@ -75,8 +74,7 @@
         android:background="@drawable/checkmark"
         android:onClick="startComments"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/imageButton35"
-        android:layout_alignEnd="@+id/imageButton35" />
+        android:layout_alignRight="@+id/imageButton35" />
 
 
 

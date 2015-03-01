@@ -20,7 +20,7 @@
 
     <EditText
         android:layout_width="320dp"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:id="@+id/editText3"
         android:layout_below="@+id/textView11"
         android:layout_alignParentLeft="true"
@@ -30,7 +30,7 @@
 
     <EditText
         android:layout_width="320dp"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:id="@+id/editText4"
         android:layout_below="@+id/textView12"
         android:layout_alignParentLeft="true"
@@ -57,6 +57,7 @@
         android:background="@drawable/done"
         android:onClick="finishComments"
         android:layout_below="@+id/editText4"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

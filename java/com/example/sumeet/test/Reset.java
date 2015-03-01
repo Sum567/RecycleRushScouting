@@ -15,6 +15,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 
 
@@ -23,31 +24,33 @@ public class Reset extends ActionBarActivity {
     public static String matchNumber = MainActivity.matchNumber;
     public static String cords = MainActivity.cords;
     public static String totesSetAuton = "" + Autonomous.totesSetAuton;
-    public static String totesMovedAuton = "" + Autonomous.totesMovedAuton;
+    public static String binsSetAuton = "" + Autonomous.binsSetAuton;
     public static String autonMove = "" + Autonomous.autonMove;
-    public static String autonTotesKnocked = "" + autonKnockedOver.totesAdded;
-    public static String autonBinsKnocked = "" + autonKnockedOver.binsAdded;
+//    public static String autonTotesKnocked = "" + autonKnockedOver.totesAdded;
+//    public static String autonBinsKnocked = "" + autonKnockedOver.binsAdded;
     public static String teleopTotesKnocked = "" + teleopKnockedOver.totes;
     public static String teleopBinsKnocked = "" + teleopKnockedOver.bins;
     public static String autonComments = Comments.autonComments;
     public static String teleopComments = Comments.teleopComments;
-
+    public int feeder = 0;
+    public int landfill = 0;
+    private Writer append;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
 
-        if(MainActivity.isTablet){
+        if (MainActivity.isTablet) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }else{
+        } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this,Comments.class);
+        Intent intent = new Intent(this, Comments.class);
         startActivity(intent);
     }
 
@@ -79,54 +82,64 @@ public class Reset extends ActionBarActivity {
         File root = android.os.Environment.getExternalStorageDirectory();
         File dir = new File(root.getAbsolutePath() + "/download");
         dir.mkdirs();
-        File file = new File(dir,teamNumber + "," + matchNumber + ".csv");
+        File file = new File(dir, "Scouting info" + ".csv");
+        File file2 = new File(dir, "Stack info" + ".csv");
         System.out.println(file.getPath());
         try {
             //File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), teamNumber + "," + matchNumber + ".csv");
-            if (!file.exists()) {
-                file.createNewFile();
-                System.out.println("Created new file");
-            }
+//            if (!file.exists()) {
+//                file.createNewFile();
+//                System.out.println("Created new file");
+//            }
+//            if(!file2.exists()){
+//                file2.createNewFile();
+//            }
 
-            BufferedWriter out = new BufferedWriter(new FileWriter(file));
+            BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
+            BufferedWriter out2 = new BufferedWriter(new FileWriter(file2, true));
 
-            out.write("Team Number: " + teamNumber + "," + "Match Number: " + matchNumber);
-            out.newLine();
-            out.write("Cords: " + cords);
-            out.newLine();
-            out.write("Auton Move: " + autonMove);
-            out.newLine();
-            out.write("Auton totes moved: " + totesMovedAuton);
-            out.newLine();
-            out.write("Auton totes set: " + totesSetAuton);
-            out.newLine();
-            out.newLine();
-            out.write("Stacks:");
-            out.newLine();
+
+            out.append("\n");
+            out.append(teamNumber + "\t");
+            out.append(matchNumber + "\t");
+            out.append(cords + "\t");
+            out.append(autonMove + "\t");
+            out.append(binsSetAuton + "\t");
+            out.append(totesSetAuton + "\t");
+//            out.append(autonTotesKnocked + "\t");
+//            out.append(autonBinsKnocked + "\t");
+            out.append(autonComments + "\t");
+            out2.append("\n");
             for (int i = 0; i < showStacks.stacks.size(); i++) {
-                out.write("Bin: " + showStacks.stacks.get(i).getHasBin() + "," + "Noodle + bin: " + showStacks.stacks.get(i).getHasNoodle());
-                out.newLine();
-                out.write("Top: " + showStacks.stacks.get(i).getTop() + "," + "Bottom: " + showStacks.stacks.get(i).getBottom());
-                out.newLine();
+                out2.append(teamNumber + "\t");
+                out2.append(matchNumber + "\t");
+                out2.append(showStacks.stacks.get(i).getHasBin() + "\t");
+                out2.append(showStacks.stacks.get(i).getHasNoodle() + "\t");
+                out2.append(showStacks.stacks.get(i).getTop() + "\t");
+                out2.append(showStacks.stacks.get(i).getBottom() + "\t");
+                out2.append('G' + "\t");
+                out2.append("\n");
+                if (showStacks.stacks.get(i).getfromFeeder()) {
+                    feeder++;
+                } else if (showStacks.stacks.get(i).getFromLandFill()) {
+                    landfill++;
+                }
             }
-            out.newLine();
-            out.newLine();
-            out.write("Co-op Stacks:");
-            out.newLine();
-            for(int i = 0; i<showStacks.yellowStacks.size(); i++){
-                out.write("Top: " + showStacks.yellowStacks.get(i).getTop() + "," + "Bottom: " + showStacks.yellowStacks.get(i).getBottom());
-                out.newLine();
+            out.append('F' + "" + feeder + "\t");
+            out.append('L' + "" + landfill + "\t");
+            out.append(teleopTotesKnocked + "\t");
+            out.append(teleopBinsKnocked + "\t");
+            out.append(teleopComments + "\t");
+            for (int i = 0; i < showStacks.yellowStacks.size(); i++) {
+                out2.append(teamNumber + "\t");
+                out2.append(matchNumber + "\t");
+                out2.append(showStacks.yellowStacks.get(i).getTop() + "\t");
+                out2.append(showStacks.yellowStacks.get(i).getBottom() + "\t");
+                out2.append('Y' + "\t");
+                out2.append("\n");
             }
-            out.newLine();
-            out.newLine();
-            out.write("Auton Comments: " + autonComments);
-            out.newLine();
-            out.write("Auton totes knocked over: " + autonTotesKnocked + "," + "Auton bins knocked over: " + autonBinsKnocked);
-            out.newLine();
-            out.write("Teleop Comments: " + teleopComments);
-            out.newLine();
-            out.write("Teleop totes knocked over: " + teleopTotesKnocked + "," + "Teleop bins knocked over: " + teleopBinsKnocked);
             out.close();
+            out2.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -141,11 +154,17 @@ public class Reset extends ActionBarActivity {
         return false;
     }
 
-    public void startOver(View view){
+    public void startOver(View view) {
         generateCsvFile();
         showStacks.stacks = new ArrayList<>();
         showStacks.yellowStacks = new ArrayList<>();
-        Intent intent = new Intent(this,MainActivity.class);
+        Autonomous.binsSetAuton  = 0;
+        Autonomous.totesSetAuton = 0;
+        autonKnockedOver.binsAdded = 0;
+        autonKnockedOver.totesAdded = 0;
+        teleopKnockedOver.bins = 0;
+        teleopKnockedOver.totes = 0;
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

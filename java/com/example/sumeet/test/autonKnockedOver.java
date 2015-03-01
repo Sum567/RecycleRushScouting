@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -51,14 +50,17 @@ public class autonKnockedOver extends ActionBarActivity {
     }
 
     public void addTote(View view){
-        textView = (TextView)findViewById(R.id.textView15);
+        textView = (TextView)findViewById(R.id.textView16);
         totesAdded++;
+        if(totesAdded>6){
+            totesAdded = 6;
+        }
         textView.setText(""+totesAdded);
 
     }
 
     public void subtractTote(View view){
-        textView = (TextView)findViewById(R.id.textView15);
+        textView = (TextView)findViewById(R.id.textView16);
         totesAdded--;
         if(totesAdded<0){
             totesAdded=0;
@@ -68,13 +70,16 @@ public class autonKnockedOver extends ActionBarActivity {
     }
 
     public void addBin(View view){
-        textView = (TextView)findViewById(R.id.textView16);
+        textView = (TextView)findViewById(R.id.textView17);
         binsAdded++;
+        if(binsAdded>6){
+            binsAdded = 6;
+        }
         textView.setText(""+binsAdded);
     }
 
     public void subtractBin(View view){
-        textView = (TextView)findViewById(R.id.textView16);
+        textView = (TextView)findViewById(R.id.textView17);
         binsAdded--;
         if(binsAdded<0){
             binsAdded=0;

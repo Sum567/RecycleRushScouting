@@ -116,15 +116,15 @@ public class makeYellowStack extends ActionBarActivity {
     }
 
     public void confirmTotes(View view){
-      //  if(toggle){
-      //      showStacks.yellowStacks.set(showStacks.temp2,new Stack(top,bottom,false,false));
-    //    }
+        if(toggle){
+            showStacks.yellowStacks.set(showStacks.temp2,new Stack(top,bottom,false,false,false,false));
+        }
      if (toggle==false){
-            showStacks.yellowStacks.add(new Stack(top,bottom,false,false));
+            showStacks.yellowStacks.add(new Stack(top,bottom,false,false,false,false));
         }
 
         for(int i = 0; i<imageButtons.length; i++){
-            imageButtons[i].setImageResource(getResources().getIdentifier("tote","drawable",getPackageName()));
+            imageButtons[i].setImageResource(getResources().getIdentifier("yellowtote","drawable",getPackageName()));
         }
 
         Intent intent = new Intent(this,showStacks.class);

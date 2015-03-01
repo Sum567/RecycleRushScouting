@@ -12,9 +12,9 @@
         android:id="@+id/imageButton14"
         android:background="@drawable/customplus"
         android:onClick="addOne"
-        android:layout_below="@+id/checkBox"
-        android:layout_alignRight="@+id/checkBox"
-        android:layout_alignEnd="@+id/checkBox" />
+        android:layout_above="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -22,9 +22,8 @@
         android:id="@+id/imageButton15"
         android:background="@drawable/customminus"
         android:onClick="subtractOne"
-        android:layout_below="@+id/imageButton14"
-        android:layout_alignLeft="@+id/imageButton14"
-        android:layout_alignStart="@+id/imageButton14" />
+        android:layout_alignStart="@+id/imageButton14"
+        android:layout_alignTop="@+id/imageButton19" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,9 +32,10 @@
         android:hint="Totes Set"
         android:editable="true"
         android:textSize="50dp"
-        android:layout_alignTop="@+id/textView10"
+        android:layout_above="@+id/imageButton15"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:text="0" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -49,27 +49,25 @@
 
     <CheckBox
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="80dp"
         android:text="Robot move?"
         android:textSize="50dp"
         android:id="@+id/checkBox"
-        android:layout_alignParentTop="true"
+        android:onClick="setMoveTrue"
+        android:layout_above="@+id/imageButton23"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="setMoveTrue" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView10"
-        android:hint="Totes Moved"
+        android:hint="0"
         android:editable="true"
         android:textSize="50dp"
-        android:layout_below="@+id/checkBox"
-        android:layout_toRightOf="@+id/checkBox"
-        android:layout_toEndOf="@+id/checkBox"
-        android:layout_marginLeft="69dp"
-        android:layout_marginStart="69dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView21"
+        android:layout_alignStart="@+id/textView21" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -77,9 +75,8 @@
         android:id="@+id/imageButton17"
         android:background="@drawable/customplus"
         android:onClick="add"
-        android:layout_alignTop="@+id/textView10"
-        android:layout_toLeftOf="@+id/imageButton23"
-        android:layout_toStartOf="@+id/imageButton23" />
+        android:layout_above="@+id/textView10"
+        android:layout_toLeftOf="@+id/imageButton23" />
 
     <ImageButton
         android:layout_width="50dp"
@@ -87,8 +84,35 @@
         android:id="@+id/imageButton19"
         android:background="@drawable/customminus"
         android:onClick="subtract"
-        android:layout_below="@+id/imageButton17"
+        android:layout_below="@+id/textView10"
         android:layout_alignLeft="@+id/imageButton17"
         android:layout_alignStart="@+id/imageButton17" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Totes Set"
+        android:textSize="40dp"
+        android:id="@+id/textView20"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignTop="@+id/imageButton14" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Bins Set"
+        android:textSize="40dp"
+        android:id="@+id/textView21"
+        android:layout_above="@+id/textView10"
+        android:layout_toRightOf="@+id/checkBox"
+        android:layout_marginLeft="93dp"
+        android:layout_marginStart="93dp"
+        android:layout_alignTop="@+id/imageButton14"
+        android:layout_toLeftOf="@+id/imageButton17"
+        android:layout_toStartOf="@+id/imageButton17" />
 
 </RelativeLayout>

@@ -167,14 +167,6 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:scaleType="fitXY"
-            android:id="@+id/imageButton37"
-            android:background="#303030"
-            android:onClick="changeBin" />
-
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:scaleType="fitXY"
             android:id="@+id/imageButton11"
             android:background="#303030"
             android:onClick="changeBin" />
@@ -196,8 +188,8 @@
             android:onClick="changeBin" />
 
         <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="77dp"
+            android:layout_height="79dp"
             android:scaleType="fitXY"
             android:id="@+id/imageButton8"
             android:background="#303030"
@@ -212,5 +204,23 @@
         android:background="@drawable/checkmark"
         android:onClick="confirmTotes"
         android:layout_gravity="bottom" />
+
+    <CheckBox
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="Landfill"
+        android:textSize="25dp"
+        android:id="@+id/checkBox2"
+        android:layout_weight="0.26"
+        android:onClick="setFromLandFill" />
+
+    <CheckBox
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="Feeder"
+        android:textSize="25dp"
+        android:id="@+id/checkBox3"
+        android:layout_weight="0.34"
+        android:onClick="setFromFeeder" />
 
 </LinearLayout>

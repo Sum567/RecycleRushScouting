@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class Autonomous extends ActionBarActivity {
     private TextView textView;
     public static int totesSetAuton = 0;
-    public static int totesMovedAuton = 0;
+    public static int binsSetAuton = 0;
     public static boolean autonMove = false;
 
 
@@ -45,6 +45,9 @@ public class Autonomous extends ActionBarActivity {
     public void addOne(View view){
         textView = (TextView)findViewById(R.id.textView);
         totesSetAuton++;
+        if(totesSetAuton>4){
+            totesSetAuton = 4;
+        }
         textView.setText("" + totesSetAuton);
     }
 
@@ -59,16 +62,19 @@ public class Autonomous extends ActionBarActivity {
     
     public void add(View view){
         textView = (TextView)findViewById(R.id.textView10);
-        totesMovedAuton++;
-        textView.setText("" + totesMovedAuton);
+        binsSetAuton++;
+        if(binsSetAuton>4){
+            binsSetAuton = 4;
+        }
+        textView.setText("" + binsSetAuton);
     }
     public void subtract(View view){
         textView = (TextView)findViewById(R.id.textView10);
-        totesMovedAuton--;
-        if(totesMovedAuton<0){
-            totesMovedAuton = 0;
+        binsSetAuton--;
+        if(binsSetAuton<0){
+            binsSetAuton = 0;
         }
-        textView.setText("" + totesMovedAuton);
+        textView.setText("" + binsSetAuton);
     }
 
     public void setMoveTrue(View view){
@@ -76,7 +82,7 @@ public class Autonomous extends ActionBarActivity {
     }
     
     public void submitTotes(View view){
-        Intent intent = new Intent(this, autonKnockedOver.class);
+        Intent intent = new Intent(this, showStacks.class);
         startActivity(intent);
     }
 
