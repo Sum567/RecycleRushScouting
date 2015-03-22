@@ -11,8 +11,8 @@
         android:layout_height="50dp"
         android:id="@+id/imageButton14"
         android:background="@drawable/customplus"
-        android:onClick="addOne"
-        android:layout_above="@+id/textView"
+        android:onClick="addToteSet"
+        android:layout_alignTop="@+id/textView20"
         android:layout_toRightOf="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
 
@@ -21,9 +21,10 @@
         android:layout_height="50dp"
         android:id="@+id/imageButton15"
         android:background="@drawable/customminus"
-        android:onClick="subtractOne"
-        android:layout_alignStart="@+id/imageButton14"
-        android:layout_alignTop="@+id/imageButton19" />
+        android:onClick="subtractToteSet"
+        android:layout_below="@+id/textView20"
+        android:layout_toRightOf="@+id/textView20"
+        android:layout_toEndOf="@+id/textView20" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +55,7 @@
         android:textSize="50dp"
         android:id="@+id/checkBox"
         android:onClick="setMoveTrue"
-        android:layout_above="@+id/imageButton23"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -65,7 +66,7 @@
         android:hint="0"
         android:editable="true"
         android:textSize="50dp"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/imageButton14"
         android:layout_alignLeft="@+id/textView21"
         android:layout_alignStart="@+id/textView21" />
 
@@ -74,16 +75,19 @@
         android:layout_height="50dp"
         android:id="@+id/imageButton17"
         android:background="@drawable/customplus"
-        android:onClick="add"
+        android:onClick="addBinSet"
+        android:layout_marginRight="104dp"
+        android:layout_marginEnd="104dp"
         android:layout_above="@+id/textView10"
-        android:layout_toLeftOf="@+id/imageButton23" />
+        android:layout_toLeftOf="@+id/imageButton23"
+        android:layout_toStartOf="@+id/imageButton23" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton19"
         android:background="@drawable/customminus"
-        android:onClick="subtract"
+        android:onClick="subtractBinSet"
         android:layout_below="@+id/textView10"
         android:layout_alignLeft="@+id/imageButton17"
         android:layout_alignStart="@+id/imageButton17" />
@@ -94,12 +98,11 @@
         android:text="Totes Set"
         android:textSize="40dp"
         android:id="@+id/textView20"
-        android:layout_above="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignTop="@+id/imageButton14" />
+        android:layout_toLeftOf="@+id/imageButton14"
+        android:layout_toStartOf="@+id/imageButton14" />
 
     <TextView
         android:layout_width="100dp"
@@ -112,7 +115,49 @@
         android:layout_marginLeft="93dp"
         android:layout_marginStart="93dp"
         android:layout_alignTop="@+id/imageButton14"
-        android:layout_toLeftOf="@+id/imageButton17"
         android:layout_toStartOf="@+id/imageButton17" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Totes Stacked"
+        android:textSize="40dp"
+        android:id="@+id/textView22"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/imageButton15"
+        android:layout_alignStart="@+id/imageButton15"
+        android:layout_toLeftOf="@+id/textView10"
+        android:layout_toStartOf="@+id/textView10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView23"
+        android:hint="0"
+        android:editable="true"
+        android:textSize="50dp"
+        android:layout_below="@+id/textView22"
+        android:layout_alignLeft="@+id/textView22"
+        android:layout_alignStart="@+id/textView22" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageButton38"
+        android:background="@drawable/customplus"
+        android:onClick="addToteStacked"
+        android:layout_alignTop="@+id/textView22"
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageButton39"
+        android:background="@drawable/customminus"
+        android:onClick="subtractToteStacked"
+        android:layout_below="@+id/textView22"
+        android:layout_alignLeft="@+id/imageButton38"
+        android:layout_alignStart="@+id/imageButton38" />
 
 </RelativeLayout>
