@@ -17,7 +17,6 @@ public class makeYellowStack extends ActionBarActivity {
     private ImageButton[] imageButtons = new ImageButton[4];
     private int top = 0;
     private int bottom = 0;
-    private int toteClick = 0;
     private boolean toggle = false;
 
     @Override

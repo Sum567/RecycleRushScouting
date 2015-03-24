@@ -39,7 +39,8 @@
         android:layout_alignEnd="@+id/imageButton"
         android:layout_below="@+id/editText"
         android:layout_above="@+id/imageButton"
-        android:onClick="getCords" />
+        android:onClick="getCords"
+        android:scaleType="fitXY" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -64,5 +65,14 @@
         android:hint="Match Number"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reverse"
+        android:id="@+id/button"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:onClick="changeImage" />
 
 </RelativeLayout>

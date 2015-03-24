@@ -4,51 +4,46 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
-    private int num = 0;
     public static String teamNumber;
     public static String matchNumber;
     public static String cords;
+    public static String cordx;
+    public static String cordy;
+    private boolean fieldToggle = false;
     public static boolean isTablet;
-    private WindowManager w = getWindowManager();
-    private Display d;
-    private Point size = new Point();
     private EditText editText;
     private TextView textView;
     private ImageView imageView;
+    private boolean imageSwitched = false;
+    private Switch switch1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(isTablet(this)){
+        if (isTablet(this)) {
             isTablet = true;
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }else{
+        } else {
             isTablet = false;
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -59,31 +54,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
+
     }
 
     @Override
     public void onBackPressed() {
     }
-
-//    public boolean onTouchEvent(MotionEvent event){
-//        imageView = (ImageView)findViewById(R.id.imageView);
-//        textView = (TextView)findViewById(R.id.textView2);
-//        if(event.getAction() == MotionEvent.ACTION_DOWN){
-//            if(event.getX()<imageView.getRight() && event.getX()>imageView.getLeft() && event.getY()<imageView.getTop() && event.getY()>imageView.getBottom()){
-//                //System.out.println("x" + event.getX());
-//                //System.out.println("y" + event.getY());
-//                textView.setText("x:" + (event.getX()-imageView.getLeft())+ " " + "y:" + (event.getY()-imageView.getTop()));
-//               textView.setTextSize(11);
-//
-//            }
-//            //x = event.getX();
-//            //y = event.getY();
-//            //returnCords(textView);
-//        }
-//
-//        return super.onTouchEvent(event);
-//    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,36 +89,59 @@ public class MainActivity extends ActionBarActivity {
                 >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
 
-    public void startTeleop(View view){
-        editText = (EditText)findViewById(R.id.editText);
+    public void startTeleop(View view) {
+        editText = (EditText) findViewById(R.id.editText);
         teamNumber = editText.getText().toString();
-        editText = (EditText)findViewById(R.id.editText2);
+        editText = (EditText) findViewById(R.id.editText2);
         matchNumber = editText.getText().toString();
         Intent intent = new Intent(this, Autonomous.class);
         startActivity(intent);
     }
 
-    public void getCords(View view){
-        imageView = (ImageView)findViewById(R.id.imageView);
-        imageView.buildDrawingCache();
-        final Bitmap bitmap = imageView.getDrawingCache();
-        final int[]pixels = {Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,Color.RED,
-        Color.RED};
-        textView = (TextView)findViewById(R.id.textView2);
+    public void getCords(View view) {
+        imageView = (ImageView) findViewById(R.id.imageView);
+        textView = (TextView) findViewById(R.id.textView2);
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                int x = (int)event.getX();
-                int y = (int)event.getY();
+                //final Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+                int x = 0;
+                if(imageSwitched==false) {
+                    x = (int) event.getX();
+                }else{
+                    x = 429-((int)event.getX());
+                }
+                int y = 432 - ((int) event.getY());
+
                 textView.setText("Touch coordinates : " + "x" +
                         String.valueOf(x) + "y" + String.valueOf(y));
-                cords = "" + x + "," + y;
-
-                bitmap.setPixels(pixels,0,4,x,y,4,4);
+                cords = x + "  " + y;
+                cordx = x + "";
+                cordy = y + "";
+                //textView.setText((imageView.getRight()-imageView.getLeft()) + "," + (imageView.getBottom()-imageView.getTop()));
 
                 return true;
             }
         });
+
+    }
+
+    public void changeImage(View view){
+        imageSwitched = true;
+        fieldToggle = !fieldToggle;
+        int resID = getResources().getIdentifier("field","drawable",getPackageName());
+        int resID2 = getResources().getIdentifier("fieldrev","drawable",getPackageName());
+        int resID3 = getResources().getIdentifier("grey","drawable",getPackageName());
+        imageView = (ImageView)findViewById(R.id.imageView);
+
+        if(fieldToggle==false){
+            imageView.setImageDrawable(null);
+            imageView.setImageResource(resID);
+        }else{
+            imageView.setImageDrawable(null);
+            imageView.setImageResource(resID2);
+        }
+
     }
 
     /**

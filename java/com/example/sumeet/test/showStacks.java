@@ -26,22 +26,26 @@ public class showStacks extends ActionBarActivity {
     private TextView textView;
     public static ArrayList<Stack> stacks = new ArrayList<>();
     public static ArrayList<Stack> yellowStacks = new ArrayList<>();
+    public static ArrayList<Stack> binStacks = new ArrayList<>();
     private LinearLayout layout;
     private String tempString = "";
-    public static int temp;
+    public static int temp1;
     public static int temp2;
+    public static int temp3;
     public static int top;
     public static int bottom;
     public static boolean toggle;
+    public int backToggle = 0;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_stacks);
 
-        if(MainActivity.isTablet){
+        if (MainActivity.isTablet) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }else{
+        } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
@@ -51,6 +55,10 @@ public class showStacks extends ActionBarActivity {
 
         if (yellowStacks.size() > 0) {
             printYellowStackNumbers();
+        }
+
+        if (binStacks.size() > 0) {
+            printBinStackNumbers();
         }
         textView = (TextView) (findViewById((R.id.textView3)));
         textView.setMovementMethod(new ScrollingMovementMethod());
@@ -89,11 +97,32 @@ public class showStacks extends ActionBarActivity {
                 return true;
             }
         });
+
+        textView = (TextView) (findViewById((R.id.textView30)));
+        textView.setMovementMethod(new ScrollingMovementMethod());
+        textView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Layout layout = ((TextView) v).getLayout();
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+                if (layout != null) {
+                    int line = layout.getLineForVertical(y);
+                    editBinStack(line);
+                    //System.out.println(line);
+
+                }
+
+                return true;
+            }
+        });
+
+
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this,autonKnockedOver.class);
+        Intent intent = new Intent(this, Autonomous.class);
         startActivity(intent);
     }
 
@@ -109,7 +138,7 @@ public class showStacks extends ActionBarActivity {
         //System.out.println(temp);
         for (int i = 0; i < stacks.size(); i++) {
             if (numStack == i) {
-                temp = i;
+                temp1 = i;
                 Intent intent = new Intent(this, makeStack.class);
                 intent.putExtra("toggle", true);
                 startActivity(intent);
@@ -130,6 +159,18 @@ public class showStacks extends ActionBarActivity {
         }
     }
 
+    public void editBinStack(int stackNum) {
+        int numStack3 = stackNum;
+
+        for (int i = 0; i < binStacks.size(); i++) {
+            if (numStack3 == i) {
+                temp3 = i;
+                Intent intent = new Intent(this, makeBinStack.class);
+                intent.putExtra("toggle", true);
+            }
+        }
+    }
+
     public void createStack(View view) {
         Intent intent = new Intent(this, makeStack.class);
         intent.putExtra("toggle", false);
@@ -142,19 +183,24 @@ public class showStacks extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void createBinStack(View view) {
+        Intent intent = new Intent(this, makeBinStack.class);
+        intent.putExtra("toggle", false);
+        startActivity(intent);
+    }
+
     public void printStackNumbers() {
         textView = (TextView) (findViewById(R.id.textView3));
-        textView.setMovementMethod(new ScrollingMovementMethod());
         if (textView.getText() == null) {
             for (int i = 0; i < stacks.size(); i++) {
                 textView.append(tempString + " Stack" + "#" + (i + 1));
+
             }
         }
         if (textView.getText() != null) {
             tempString = textView.getText().toString();
             for (int i = 0; i < stacks.size(); i++) {
                 textView.append(tempString + "Stack" + "#" + (i + 1) + "\n");
-
             }
         }
 
@@ -163,18 +209,32 @@ public class showStacks extends ActionBarActivity {
 
     public void printYellowStackNumbers() {
         textView = (TextView) (findViewById(R.id.textView13));
-        textView.setMovementMethod(new ScrollingMovementMethod());
         if (textView.getText() == null) {
             for (int i = 0; i < yellowStacks.size(); i++) {
                 textView.append(tempString + "Stack" + "#" + (i + 1));
-                textView.setTextColor(Color.parseColor("#d9f907"));
+                textView.setTextColor(Color.YELLOW);
             }
         }
         if (textView.getText() != null) {
             tempString = textView.getText().toString();
             for (int i = 0; i < yellowStacks.size(); i++) {
                 textView.append(tempString + "Stack" + "#" + (i + 1) + "\n");
-                textView.setTextColor(Color.parseColor("#d9f907"));
+                textView.setTextColor(Color.YELLOW);
+            }
+        }
+    }
+
+    public void printBinStackNumbers() {
+        textView = (TextView) (findViewById(R.id.textView30));
+        if (textView.getText() == null) {
+            for (int i = 0; i < binStacks.size(); i++) {
+                textView.append(tempString + "Stack" + "#" + (i + 1));
+            }
+        }
+        if (textView.getText() != null) {
+            tempString = textView.getText().toString();
+            for (int i = 0; i < binStacks.size(); i++) {
+                textView.append(tempString + "Stack" + "#" + (i + 1) + "\n");
             }
         }
     }

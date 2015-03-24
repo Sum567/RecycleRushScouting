@@ -22,7 +22,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/imageView" />
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_toStartOf="@+id/imageView" />
 
     <TextView
         android:layout_width="1000dp"
@@ -31,19 +32,8 @@
         android:textSize="15dp"
         android:hint="Coordinates"
         android:layout_above="@+id/imageButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView" />
-
-    <ImageView
-        android:layout_width="550dp"
-        android:layout_height="550dp"
-        android:id="@+id/imageView"
-        android:background="@drawable/field"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="getCords" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -51,7 +41,7 @@
         android:id="@+id/imageButton"
         android:onClick="startTeleop"
         android:background="@drawable/checkmark"
-        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -64,10 +54,28 @@
         android:layout_alignParentTop="true"
         android:hint="Match Number"
         android:textSize="20dp"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/editText"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/imageView"
         android:layout_toEndOf="@+id/imageView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/field"
+        android:layout_above="@+id/imageButton"
+        android:onClick="getCords"
+        android:scaleType="fitXY" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reverse"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="changeImage" />
 
 </RelativeLayout>

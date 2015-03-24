@@ -14,7 +14,6 @@ public class teleopKnockedOver extends ActionBarActivity {
     public static int totes = 0;
     public static int bins = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
